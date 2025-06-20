@@ -1,0 +1,10 @@
+# Node / Yarn Berry
+.yarn/*
+!.yarn/cache
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+.pnp.*                     # Plug'n'Play loader
+.env                       # runtime secrets
+.node_modules
