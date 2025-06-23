@@ -2,9 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/connectDB.js";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-// import couponRoutes from "./routes/couponController.js";
-import userRoutes from "./routes/userRoutes.js";
+import couponsRoutes from "./routes/couponRoutes.js";
 
 /* ----------  Runtime Setup  ---------- */
 
@@ -19,16 +17,9 @@ app.use(express.json());
 // const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 const PORT = process.env.PORT ?? 3000;
-app.use(
-  cors({
-    origin: "*", // Replace '*' with your client domain if needed for security
-    methods: "GET,POST,PUT,DELETE",
-    allowedHeaders: "Content-Type,Authorization",
-  })
-);
+app.use(cors());
 connectDB();
-// app.use("/api", couponRoutes);
-app.use("/api/user", userRoutes);
+app.use("/api", couponsRoutes);
 app.get("/", (_, res) => {
   res.json({ message: "Hello from Node 22" });
 });
