@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import interpretPrompt from "../helper/interpretPrompt.js";
-import { User } from "../models/User.js";
+// import { User } from "../models/User.js";
 export const queryUsers = async (req, res) => {
   try {
     const { prompt } = req.body;
